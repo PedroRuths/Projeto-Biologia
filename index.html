@@ -3,70 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoVendas - Produtos Ecológicos</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Galeria de Animais</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .left-side {
+            flex: 2;
+            padding-right: 20px;
+        }
+
+        .right-side {
+            flex: 1;
+            border-left: 2px solid #ccc;
+            padding-left: 20px;
+        }
+
+        .animal-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .animal-characteristics {
+            margin-top: 15px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .animal-characteristics li {
+            margin-bottom: 8px;
+        }
+
+        .animal-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .animal-list li {
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .animal-list li:hover {
+            color: #007BFF;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        /* Estilos da tela de introdução */
+        .intro {
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .intro h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .intro p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .intro button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .intro button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>EcoVendas</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#produtos">Produtos</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#contato">Contato</a></li>
+
+    <!-- Tela de introdução -->
+    <div class="intro" id="intro">
+        <h1>Bem-vindo à Galeria de Animais</h1>
+        <p>Explore diversos animais incríveis, conheça suas características, habitats e muito mais.</p>
+        <button onclick="startGallery()">Explorar</button>
+    
+    </div>
+
+    <!-- Tela principal da galeria -->
+    <div class="container" id="gallery">
+        <!-- Lado esquerdo: Imagem e Características -->
+        <div class="left-side">
+            <h2 id="animal-name">Leão</h2>
+            <img id="animal-image" src="https://example.com/leao.jpg" alt="Foto de um Leão" class="animal-image">
+            
+            <ul id="animal-characteristics" class="animal-characteristics">
+                <li><strong>Espécie:</strong> Panthera leo</li>
+                <li><strong>Habitat:</strong> Savanas e florestas da África</li>
+                <li><strong>Alimentação:</strong> Carnívoro</li>
+                <li><strong>Tamanho:</strong> Até 3 metros de comprimento</li>
+                <li><strong>Peso:</strong> Até 250 kg</li>
             </ul>
-        </nav>
-    </header>
-
-    <section id="home" class="banner">
-        <h2>Bem-vindo ao EcoVendas</h2>
-        <p>Os melhores produtos ecológicos para você e para o planeta.</p>
-    </section>
-
-    <section id="produtos" class="produtos">
-        <h2>Nossos Produtos</h2>
-        <div class="produto">
-            <img src="img/produto1.jpg" alt="Produto 1">
-            <h3>Saco Reutilizável</h3>
-            <p>Preço: R$ 25,00</p>
-            <button>Comprar</button>
         </div>
-        <div class="produto">
-            <img src="img/produto2.jpg" alt="Produto 2">
-            <h3>Canudo de Metal</h3>
-            <p>Preço: R$ 15,00</p>
-            <button>Comprar</button>
+
+        <!-- Lado direito: Lista de Animais -->
+        <div class="right-side">
+            <h2>Outros Animais</h2>
+            <ul class="animal-list">
+                <li onclick="changeAnimal('Leão')">Leão</li>
+                <li onclick="changeAnimal('Tigre')">Tigre</li>
+                <li onclick="changeAnimal('Elefante')">Elefante</li>
+                <li onclick="changeAnimal('Girafa')">Girafa</li>
+                <li onclick="changeAnimal('Hipopótamo')">Hipopótamo</li>
+                <li onclick="changeAnimal('Crocodilo')">Crocodilo</li>
+                <li onclick="changeAnimal('Águia')">Águia</li>
+                <li onclick="changeAnimal('Pinguim')">Pinguim</li>
+            </ul>
         </div>
-        <div class="produto">
-            <img src="img/produto3.jpg" alt="Produto 3">
-            <h3>Escova de Bambu</h3>
-            <p>Preço: R$ 20,00</p>
-            <button>Comprar</button>
-        </div>
-    </section>
+    </div>
 
-    <section id="sobre" class="sobre">
-        <h2>Sobre Nós</h2>
-        <p>Na EcoVendas, acreditamos que pequenas ações podem fazer uma grande diferença. Nossa missão é fornecer produtos que respeitem o meio ambiente e ajudem nossos clientes a viver de forma mais sustentável.</p>
-    </section>
+    <script>
+        // Função para iniciar a galeria, escondendo a tela de introdução e mostrando a galeria de animais
+        function startGallery() {
+            document.getElementById('intro').style.display = 'none';  // Esconde a introdução
+            document.getElementById('gallery').style.display = 'flex'; // Mostra a galeria
+        }
 
-    <section id="contato" class="contato">
-        <h2>Contato</h2>
-        <form>
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
+        // Banco de dados dos animais (Nome, imagem, e características)
+        const animals = {
+            "Leão": {
+                name: "Leão",
+                image: "https://example.com/leao.jpg",
+                characteristics: [
+                    { label: "Espécie", value: "Panthera leo" },
+                    { label: "Habitat", value: "Savanas e florestas da África" },
+                    { label: "Alimentação", value: "Carnívoro" },
+                    { label: "Tamanho", value: "Até 3 metros de comprimento" },
+                    { label: "Peso", value: "Até 250 kg" }
+                ]
+            },
+            "Tigre": {
+                name: "Tigre",
+                image: "https://example.com/tigre.jpg",
+                characteristics: [
+                    { label: "Espécie", value: "Panthera tigris" },
+                    { label: "Habitat", value: "Florestas da Ásia" },
+                    { label: "Alimentação", value: "Carnívoro" },
+                    { label: "Tamanho", value: "Até 3,3 metros de comprimento" },
+                    { label: "Peso", value: "Até 300 kg" }
+                ]
+            },
+            "Elefante": {
+                name: "Elefante",
+                image: "https://example.com/elefante.jpg",
+                characteristics: [
+                    { label: "Espécie", value: "Loxodonta africana" },
+                    { label: "Habitat", value: "Savanas e florestas da África" },
+                    { label: "Alimentação", value: "Herbívoro" },
+                    { label: "Tamanho", value: "Até 4 metros de altura" },
+                    { label: "Peso", value: "Até 6.000 kg" }
+                ]
+            },
+            // Adicione mais animais aqui
+        };
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+        // Função para mudar o animal
+        function changeAnimal(animalName) {
+            const animal = animals[animalName];
 
-            <label for="mensagem">Mensagem:</label>
-            <textarea id="mensagem" name="mensagem" required></textarea>
+            // Atualiza o nome do animal
+            document.getElementById('animal-name').textContent = animal.name;
 
-            <button type="submit">Enviar</button>
-        </form>
-    </section>
+            // Atualiza a imagem do animal
+            document.getElementById('animal-image').src = animal.image;
+            document.getElementById('animal-image').alt = `Foto de um ${animal.name}`;
 
-   
+            // Atualiza as características
+            const characteristicsList = document.getElementById('animal-characteristics');
+            characteristicsList.innerHTML = '';  // Limpa a lista atual
+            animal.characteristics.forEach(characteristic => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `<strong>${characteristic.label}:</strong> ${characteristic.value}`;
+                characteristicsList.appendChild(listItem);
+            });
+        }
+    </script>
+
 </body>
 </html>
